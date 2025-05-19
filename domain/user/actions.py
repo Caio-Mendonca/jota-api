@@ -31,7 +31,6 @@ def user_create(
     name: str,
     group: Group,
     password: Optional[str] = None,
-    # avatar: Optional[File] = None,
     is_active: bool = False,
 ) -> User:
     user = User.objects.create_user(
@@ -39,7 +38,6 @@ def user_create(
         name=name,
         password=password,
         group=group,
-        # avatar=avatar,
         is_active=is_active,
     )
 
@@ -58,7 +56,6 @@ def user_create(
 @transaction.atomic
 def user_update(*, user: User, data) -> User:
     non_side_effect_fields = [
-        "avatar",
         "name",
         "email",
         "is_active",

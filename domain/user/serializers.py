@@ -7,16 +7,10 @@ class GroupField(serializers.RelatedField):
         return dict({"value": value.last().id, "label": value.last().name})
 
 
-class AvatarField(serializers.Field):
-    def to_representation(self, value):
-        return dict({"id": value.id, "path": value.path.url})
-
-
 class UserOutputSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     is_active = serializers.BooleanField(read_only=True)
     is_admin = serializers.BooleanField(read_only=True)
-    # avatar = AvatarField()
     email = serializers.CharField(read_only=True)
     name = serializers.CharField(read_only=True)
     group = GroupField(read_only=True, source="groups")
@@ -32,11 +26,7 @@ class FilterSerializer(serializers.Serializer):
     search = serializers.CharField(required=False)
 
 
-# INPUTS
 class InputSerializer(serializers.Serializer):
-    # avatar = serializers.PrimaryKeyRelatedField(
-    #     required=False, allow_null=True, queryset=File.objects.all(), write_only=True
-    # )
     email = serializers.EmailField(required=True)
     name = serializers.CharField(required=True, min_length=2)
     password = serializers.CharField(required=False)

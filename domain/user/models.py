@@ -24,7 +24,6 @@ class UserManager(BaseUserManager):
         email: str,
         name: str,
         group: Group,
-        # avatar: Optional[File] = None,
         is_active: bool = False,
         password: Optional[str] = None,
         is_admin: bool = False,
@@ -32,7 +31,6 @@ class UserManager(BaseUserManager):
         user = self.model(
             email=self.normalize_email(email.lower()),
             name=name,
-            # avatar=avatar,
             is_active=is_active,
             is_admin=is_admin,
         )
@@ -85,9 +83,6 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
         max_length=255,
         unique=True,
     )
-    # avatar = models.OneToOneField(
-    #     to="file.File", db_index=True, null=True, blank=True, on_delete=models.SET_NULL
-    # )
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     objects = UserManager()

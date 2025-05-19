@@ -1,11 +1,25 @@
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from django.urls import path, include
+from rest_framework_simplejwt.views import (
+    TokenRefreshView,
+    TokenBlacklistView,
+    TokenObtainPairView,
+)
 
+from application.authentication.apis import user_me_api
 
-class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
-    @classmethod
-    def get_token(cls, user):
-        token = super().get_token(user)
-
-        token["email"] = user.email
-
-        return token
+urlpatterns = [
+    path(
+        "jwt/",
+        include(
+            (
+                [
+                    path("login/", TokenObtainPairView.as_view(), name="login"),
+                    path("refresh/", TokenRefreshView.as_view(), name="refresh"),
+                    path("logout/", TokenBlacklistView.as_view(), name="logout"),
+                ],
+                "jwt",
+            )
+        ),
+    ),
+    path("me/", user_me_api, name="me"),
+]

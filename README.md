@@ -2,31 +2,37 @@
 
 
 # COMECE por aqui:
- ## Create venv
+ - Create venv
  ```
  python -m venv venv
  ```
 
- ## Init venv
+ - Init venv
  ```
  source venv/bin/activate
  ```
- ## Install requirements
+ - Install requirements
  ```
  make setup
  ```
- ## Init DataBase
+ -  Init DataBase
   ```
  make start-db
  ```
-
+ - Run migrations
+ ```
+ make migrate
+ ```
+ - Init Server
+  ```
+ make start-server
+ ```
 
 # Style Guide
 Para o desenvolvimento desse projeto escolhi o style guide 
 
-# Modelo do banco de dados: 
+# [Diagrama Banco](https://dbdiagram.io/e/67d58a3175d75cc84431913b/682b500d1227bdcb4effee9b)
 
-<iframe width="560" height="315" src='https://dbdiagram.io/e/67d58a3175d75cc84431913b/682b500d1227bdcb4effee9b'> </iframe>
 
 # Escopo
 Desenvolver uma API RESTful para gestão de notícias, contemplando autenticação e diferentes perfis de usuário.

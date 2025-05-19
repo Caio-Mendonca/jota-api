@@ -15,9 +15,6 @@ from domain.user.serializers import UserOutputSerializer
 
 
 class InputSerializer(serializers.Serializer):
-    avatar = serializers.PrimaryKeyRelatedField(
-        required=False, allow_null=True, write_only=True
-    )
     name = serializers.CharField(required=False)
     email = serializers.CharField(required=False)
     is_active = serializers.BooleanField(required=False)

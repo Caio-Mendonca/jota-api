@@ -11,7 +11,7 @@ update-requirements:
 setup: clean
 	pip install -r requirements.txt
 
-server: clean
+start-server: clean
 	python manage.py runserver
 
 superuser: clean
@@ -19,3 +19,9 @@ superuser: clean
 
 start-db:
 	sudo docker compose -f .docker/docker-compose.yml up -d --build
+
+migrations: clean
+	python manage.py makemigrations
+
+migrate: clean
+	python manage.py migrate
