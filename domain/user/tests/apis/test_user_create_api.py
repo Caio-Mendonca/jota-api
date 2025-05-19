@@ -33,15 +33,13 @@ class UserCreateApiTests(APITestCase):
         cls.auth_headers_editor = {
             "HTTP_AUTHORIZATION": f"{settings.SIMPLE_JWT['AUTH_HEADER_TYPES']} {access_editor}"
         }
-        
+
         cls.auth_user_reader = user_get(user_id=3)
         tokens = get_tokens_for_user(cls.auth_user_reader)
         access_reader = tokens["access"]
         cls.auth_headers_reader = {
             "HTTP_AUTHORIZATION": f"{settings.SIMPLE_JWT['AUTH_HEADER_TYPES']} {access_reader}"
         }
-
-
 
     @tag("unit")
     def test_create_user_admin(self):
@@ -95,7 +93,7 @@ class UserCreateApiTests(APITestCase):
             path=self.user_create_url,
             data=new_user,
             format="json",
-            **self.auth_headers_reader
+            **self.auth_headers_reader,
         )
 
         self.assertEqual(201, response.status_code)
