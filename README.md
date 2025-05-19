@@ -16,5 +16,3 @@ Desenvolver uma API RESTful para gestão de notícias, contemplando autenticaç�
 Para essa decisão considerei que a validação de quais noticiais o usuario terá acesso se dará diretamente na noticia, sendo ela que terá o relacionamento com o plano e essa relação ficando alheia ao usuario e as verticais.
 
 Sendo assim temos o seguinte diagrama:
-
-# Diagrama da Modelagem
