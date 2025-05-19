@@ -1,0 +1,82 @@
+Enum type_file {
+  image_png   
+  image_jpeg  
+  image_jpg   
+  image_webp 
+}
+
+Enum news_status {
+  draft
+  published
+}
+
+Enum plan_type {
+  jota_info
+  jota_pro
+}
+
+Table vertical {
+  id bigint [pk, increment]
+  name varchar [not null, unique]
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+  created_by bigint [ref: > user.id, null]
+  updated_by bigint [ref: > user.id, null]
+}
+
+Table user {
+  id bigint [pk, increment]
+  plan_id bigint [ref: > plan.id, null] 
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+  created_by bigint [ref: > user.id, null]
+  updated_by bigint [ref: > user.id, null]
+  // Gestão de perfil será feita pela django
+}
+
+Table plan {
+  id bigint [pk, increment]
+  name plan_type [not null, unique] 
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+  created_by bigint [ref: > user.id, null]
+  updated_by bigint [ref: > user.id, null]
+}
+
+Table plan_vertical {
+  id bigint [pk, increment]
+  plan_id bigint [ref: > plan.id, not null]
+  vertical_id bigint [ref: > vertical.id, not null]
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+  created_by bigint [ref: > user.id, null]
+  updated_by bigint [ref: > user.id, null]
+  // N:N entre planos e verticais
+}
+
+Table file {
+  id bigint [pk, increment]
+  path varchar
+  type_file type_file [note: "Choices: 'image_png', 'image_jpeg', etc."]
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+  created_by bigint [ref: > user.id, null]
+  updated_by bigint [ref: > user.id, null]
+}
+
+Table news {
+  id bigint [pk, increment]
+  title varchar [not null] 
+  subtitle varchar
+  content text [not null] 
+  image_id bigint [ref: > file.id, null]
+  author_id bigint [ref: > user.id, not null]
+  publication_date timestamp [null]   // Permite agendamento da publicação
+  status news_status [not null, default: 'draft']
+  access_pro boolean [not null, default: false] // Exclusivo para clientes PRO
+  vertical_id bigint [ref: > vertical.id, not null] // Categoria da notícia (vertical)
+  created_at timestamp [not null]
+  updated_at timestamp [not null]
+  created_by bigint [ref: > user.id, null]
+  updated_by bigint [ref: > user.id, null]
+}
