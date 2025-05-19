@@ -7,7 +7,7 @@ jobs:
     name: Health Check
     runs-on: ubuntu-latest
     env:
-      ALLOWED_HOSTS: "localhost,127.0.0.1"
+      ALLOWED_HOSTS: "http://localhost,http://127.0.0.1"
       DATABASE: "default"
       SECRET_KEY: "fake-key-for-ci"
       SQL_DATABASE: "ci_db"
