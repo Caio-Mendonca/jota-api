@@ -25,3 +25,15 @@ migrations: clean
 
 migrate: clean
 	python manage.py migrate
+
+
+
+# Tests
+coverage: clean
+	pytest -v --disable-warnings --cov
+	
+pytest: clean
+	pytest -v --disable-warnings
+
+test: clean
+	python manage.py test --settings=setup.django.test

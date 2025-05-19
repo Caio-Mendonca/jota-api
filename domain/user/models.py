@@ -73,8 +73,6 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
         ordering = ["-created_at"]
         permissions = [
             ("can_add_group_to_user", "Can add groups to a user"),
-            ("can_view_dashboard", "Can view dashboard"),
-            ("can_view_reports", "Can view reports"),
         ]
 
     name = models.CharField(max_length=255)
