@@ -7,6 +7,7 @@ from domain.user.exceptions import InvalidUser
 from .models import User
 from support.actions import model_update
 
+
 def user_create(
     *,
     email: str,

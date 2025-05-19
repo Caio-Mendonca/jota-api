@@ -11,12 +11,16 @@ schema_view = get_schema_view(
         description="Documentação da API do projeto Case Jota API",
     ),
     public=True,
-    permission_classes=(permissions.AllowAny,),  
+    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('application.api.urls')),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path("admin/", admin.site.urls),
+    path("api/", include("application.api.urls")),
+    path(
+        "swagger/",
+        schema_view.with_ui("swagger", cache_timeout=0),
+        name="schema-swagger-ui",
+    ),
+    path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
 ]
