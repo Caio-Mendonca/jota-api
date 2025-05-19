@@ -1,0 +1,1 @@
+# Pasta destinada a diagramas do projeto
