@@ -11,12 +11,12 @@ jobs:
       CSRF_TRUSTED_ORIGINS: "http://localhost,http://127.0.0.1"
       DATABASE: "default"
       SECRET_KEY: "fake-key-for-ci"
-      SQL_DATABASE: "ci_db"
-      SQL_ENGINE: "django.db.backends.postgresql"
-      SQL_HOST: "localhost"
-      SQL_PASSWORD: "postgres"
-      SQL_PORT: "5432"
-      SQL_USER: "postgres"
+      DBNAME: "ci_db"
+      DBENGINE: "django.db.backends.postgresql"
+      DBHOST: "localhost"
+      DBPASSWORD: "postgres"
+      DBPORT: "5432"
+      DBUSER: "postgres"
     services:
       postgres:
         image: postgres:latest
