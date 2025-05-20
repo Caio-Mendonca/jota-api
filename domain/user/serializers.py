@@ -34,3 +34,11 @@ class InputSerializer(serializers.Serializer):
     group = serializers.PrimaryKeyRelatedField(
         required=True, queryset=Group.objects.all()
     )
+
+class InputUpdateSerializer(serializers.Serializer):
+    name = serializers.CharField(required=False)
+    email = serializers.CharField(required=False)
+    is_active = serializers.BooleanField(required=False)
+    group = serializers.PrimaryKeyRelatedField(
+        required=False, queryset=Group.objects.all()
+    )

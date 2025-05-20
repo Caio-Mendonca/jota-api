@@ -11,16 +11,14 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.contrib.auth.models import Group
 from domain.user.actions import user_update
 from domain.user.selectors import user_get
-from domain.user.serializers import UserOutputSerializer
-
-
-class InputSerializer(serializers.Serializer):
-    name = serializers.CharField(required=False)
-    email = serializers.CharField(required=False)
-    is_active = serializers.BooleanField(required=False)
-    group = serializers.PrimaryKeyRelatedField(
-        required=False, queryset=Group.objects.all()
-    )
+from domain.user.serializers import InputUpdateSerializer, UserOutputSerializer
+from drf_spectacular.utils import extend_schema
+@extend_schema(
+    summary="Atualiza um usuário",
+    request=InputUpdateSerializer,
+    tags=["Usuários"],
+    responses={200: UserOutputSerializer},
+)
 
 
 @api_view(["PATCH"])
@@ -32,7 +30,7 @@ def user_update_api(request, pk):
 
     user = user_get(user_id=pk)
 
-    serializer = InputSerializer(data=request.data)
+    serializer = InputUpdateSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
 
     user = user_update(user=user, data=serializer.validated_data)

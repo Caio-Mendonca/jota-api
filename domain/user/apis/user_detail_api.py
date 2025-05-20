@@ -10,8 +10,13 @@ from rest_framework.decorators import (
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from domain.user.selectors import user_get
 from domain.user.serializers import UserOutputSerializer
+from drf_spectacular.utils import extend_schema 
 
-
+@extend_schema(
+    summary="Obtém os detalhes de um usuário",
+    tags=["Usuários"],
+    responses={200: UserOutputSerializer, 404: {"detail": "Usuário não encontrado"}}
+)
 @api_view(["GET"])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
