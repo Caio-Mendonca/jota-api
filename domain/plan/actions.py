@@ -6,10 +6,7 @@ from support.actions import model_update
 
 
 def plan_create(
-    *,
-    name: str,
-    description: str,
-    created_by: Optional[User] = None
+    *, name: str, description: str, created_by: Optional[User] = None
 ) -> Plan:
     """
     Cria um novo plano com os dados fornecidos.

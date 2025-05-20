@@ -34,6 +34,7 @@ class InputSerializer(serializers.Serializer):
         required=True, queryset=Group.objects.all()
     )
 
+
 class InputUpdateSerializer(serializers.Serializer):
     name = serializers.CharField(required=False)
     email = serializers.CharField(required=False)

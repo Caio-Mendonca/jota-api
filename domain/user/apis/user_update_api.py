@@ -13,14 +13,14 @@ from domain.user.actions import user_update
 from domain.user.selectors import user_get
 from domain.user.serializers import InputUpdateSerializer, UserOutputSerializer
 from drf_spectacular.utils import extend_schema
+
+
 @extend_schema(
     summary="Atualiza um usuário",
     request=InputUpdateSerializer,
     tags=["Usuários"],
     responses={200: UserOutputSerializer},
 )
-
-
 @api_view(["PATCH"])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])

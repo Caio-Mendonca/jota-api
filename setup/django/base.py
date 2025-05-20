@@ -123,10 +123,10 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 AUTH_USER_MODEL = "user.User"
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'JOTA API',
-    'DESCRIPTION': 'Documentação da API do projeto Case Jota API',
-    'VERSION': 'v1',
-    'SERVE_INCLUDE_SCHEMA': False
+    "TITLE": "JOTA API",
+    "DESCRIPTION": "Documentação da API do projeto Case Jota API",
+    "VERSION": "v1",
+    "SERVE_INCLUDE_SCHEMA": False,
 }
 
 # Internationalization

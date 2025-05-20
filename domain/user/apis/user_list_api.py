@@ -10,12 +10,13 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from domain.user.selectors import user_list
 from domain.user.serializers import FilterSerializer, UserOutputSerializer
 from drf_spectacular.utils import extend_schema
+
+
 @extend_schema(
     summary="Lista de usuários",
     tags=["Usuários"],
     responses={200: UserOutputSerializer(many=True)},
 )
-
 @api_view(["GET"])
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
