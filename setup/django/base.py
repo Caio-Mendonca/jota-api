@@ -35,6 +35,7 @@ LOCAL_APPS = [
     "application.api.app.ApiConfig",
     "application.permissions.app.PermissionConfig",
     "domain.user.app.UserConfig",
+    "domain.plan.app.PlanConfig",
 ]
 
 THIRD_PARTY_APPS = [

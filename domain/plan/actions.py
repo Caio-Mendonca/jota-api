@@ -8,9 +8,6 @@ from support.actions import model_update
 def plan_create(
     *, name: str, description: str, created_by: Optional[User] = None
 ) -> Plan:
-    """
-    Cria um novo plano com os dados fornecidos.
-    """
     plan = Plan(
         name=name,
         description=description,
@@ -26,9 +23,6 @@ def plan_create(
 
 @transaction.atomic
 def plan_update(*, plan: Plan, data: dict, modified_by: Optional[User] = None) -> Plan:
-    """
-    Atualiza os campos de um plano existente.
-    """
     updatable_fields = ["name", "description"]
 
     plan, has_updated = model_update(

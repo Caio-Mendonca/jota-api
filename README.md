@@ -1,7 +1,7 @@
 
-# 📘 Case JOTA
+# Case JOTA
 
-## 🔐 Acessos
+## Acessos
 
 ```json
 ADM:
@@ -23,7 +23,7 @@ Leitor:
   }
 ```
 
-## 🛠️ COMECE por aqui
+## COMECE por aqui
 
 - Criar ambiente virtual:
   ```bash
@@ -55,22 +55,22 @@ Leitor:
   make start-server
   ```
 
-## 🎨 Style Guide
+## Style Guide
 
-Para este projeto, decidimo seguir o [**HackSoftware/Django-Styleguide**](https://github.com/HackSoftware/Django-Styleguide). Esse guia é usado como referência por muitas equipes que trabalham com Django, e ajuda a manter uma estrutura limpa, coerente e fácil de escalar.
+Para este projeto, decidi seguir o [**HackSoftware/Django-Styleguide**](https://github.com/HackSoftware/Django-Styleguide). Esse guia é usado como referência por muitas equipes que trabalham com Django, e ajuda a manter uma estrutura limpa, coerente e fácil de escalar.
 
 A principal vantagem de usá-lo é que ele deixa cada parte do sistema no seu devido lugar. A lógica de negócio fica separada das views, os dados são manipulados por actions e selectors bem definidos, e tudo fica mais fácil de entender, tanto para quem desenvolve quanto para quem vai dar manutenção depois.
 
 Além disso, o style guide conversa muito bem com os princípios do Domain-Driven Design (DDD), permitindo que o projeto seja orientado pelas regras do domínio da aplicação, e não pela estrutura técnica do framework.
 
 
-## 🔗 [Diagrama do Banco de Dados](https://dbdiagram.io/e/67d58a3175d75cc84431913b/682b500d1227bdcb4effee9b)
+## [Diagrama do Banco de Dados](https://dbdiagram.io/e/67d58a3175d75cc84431913b/682b500d1227bdcb4effee9b)
 
-## 📌 Escopo
+## Escopo
 
 Desenvolver uma API RESTful para gestão de notícias, contemplando autenticação e diferentes perfis de usuário.
 
-## ✅ Checklist de Entregáveis
+## Checklist de Entregáveis
 
 - [X] Autenticação JWT implementada
 - [X] Perfis de usuário (Admin, Editor, Leitor) configurados como grupos
@@ -88,7 +88,7 @@ Desenvolver uma API RESTful para gestão de notícias, contemplando autenticaç�
 - [X] Documentação da API com Swagger/OpenAPI
 - [ ] Docker e docker-compose configurados para deploy
 
-## ⚙️ Decisões Técnicas
+## Decisões Técnicas
 
 ### Gestão de Perfis
 
@@ -107,5 +107,6 @@ Tanto os planos quanto as verticais foram modelados como entidades independentes
 - Relacionamento N:1 entre o usuário e seu respectivo plano de acesso
 - Relacionamento N:N entre planos e verticais, possibilitando que um plano ofereça acesso a múltiplas verticais e que uma vertical esteja presente em diferentes planos
 - As notícias se vinculam diretamente a uma vertical (e não ao usuário), e o acesso é controlado com base no plano do usuário, mantendo o usuário desacoplado da lógica da notícia
+- Além disso, foi adotada uma **dupla camada de validação de acesso**: uma baseada na vertical da notícia (associada ao plano do usuário) e outra através de um campo booleano `access_pro`. Essa camada adicional permite que determinadas notícias — mesmo pertencentes a verticais públicas — sejam marcadas como exclusivas para assinantes PRO.
 
 Essa modelagem proporciona escalabilidade e flexibilidade para evoluir a plataforma sem travas técnicas.
