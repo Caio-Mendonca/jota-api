@@ -10,7 +10,6 @@ class GroupField(serializers.RelatedField):
 class UserOutputSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     is_active = serializers.BooleanField(read_only=True)
-    is_admin = serializers.BooleanField(read_only=True)
     email = serializers.CharField(read_only=True)
     name = serializers.CharField(read_only=True)
     group = GroupField(read_only=True, source="groups")

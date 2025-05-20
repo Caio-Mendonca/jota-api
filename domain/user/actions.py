@@ -47,10 +47,6 @@ def user_update(*, user: User, data) -> User:
 
         group = user.groups.get()
         user.groups.remove(group)
-        if data["group"].name != "Administrador":
-            user.is_admin = False
-        else:
-            user.is_admin = True
         user.save()
         user.groups.add(data["group"])
 
