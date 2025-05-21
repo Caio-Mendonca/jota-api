@@ -6,13 +6,12 @@ from support.actions import model_update
 
 
 def plan_create(
-    *, name: str, description: str, created_by: Optional[User] = None
+    *, name: str, description: str, user: User= None
 ) -> Plan:
     plan = Plan(
         name=name,
         description=description,
-        created_by=created_by,
-        updated_by=created_by,
+        created_by=user,
     )
 
     plan.full_clean()

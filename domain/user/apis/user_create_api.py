@@ -23,8 +23,6 @@ from domain.user.actions import user_create
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
 def user_create_api(request):
-    if not request.user.has_perm("user.add_user"):
-        raise PermissionDenied
     serializer = InputSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
 

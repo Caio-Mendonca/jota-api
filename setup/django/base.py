@@ -35,6 +35,8 @@ LOCAL_APPS = [
     "application.api.app.ApiConfig",
     "application.permissions.app.PermissionConfig",
     "domain.user.app.UserConfig",
+    "domain.vertical.app.VerticalConfig",
+    "domain.file.app.FileConfig",
     "domain.plan.app.PlanConfig",
 ]
 

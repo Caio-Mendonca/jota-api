@@ -27,6 +27,6 @@ def plan_create_api(request):
         raise PermissionDenied
     serializer = CreatePlanSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
-    plan_create(**serializer.validated_data)
+    plan_create(**serializer.validated_data, user=request.user)
     
     return Response(status=status.HTTP_201_CREATED)

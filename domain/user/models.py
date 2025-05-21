@@ -78,6 +78,13 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
         max_length=255,
         unique=True,
     )
+    plan = models.ForeignKey(
+        to='plan.Plan',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="users",
+    )
     is_active = models.BooleanField(default=True)
     objects = UserManager()
     USERNAME_FIELD = "email"

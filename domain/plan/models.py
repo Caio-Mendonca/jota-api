@@ -4,9 +4,6 @@ from django.db import models
 
 
 class Plan(BaseModel):
-    """
-    Plan model to store plan information.
-    """
 
     class Meta:
         db_table = "plan"

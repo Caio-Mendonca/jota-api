@@ -2,7 +2,6 @@ import os.path
 
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__name__))
 
-from domain.plan.actions import plan_create
 from domain.user.selectors import user_get
 from support.utils import get_tokens_for_user
 from django.test import tag
@@ -12,14 +11,14 @@ from rest_framework.test import APIClient
 from django.conf import settings
 
 
-class PlanEditApiTests(APITestCase):
+class VerticalCreateApiTests(APITestCase):
     fixtures = [PROJECT_ROOT + "/fixtures/db_test.json"]
 
     @classmethod
     def setUpTestData(cls):
         cls.client = APIClient()
 
-        cls.plan_edit_url = lambda pk: reverse("api:plan:edit", kwargs={"pk": pk})
+        cls.vertical_create_url = reverse("api:vertical:create")
 
         cls.auth_user_admin = user_get(user_id=1)
         tokens = get_tokens_for_user(cls.auth_user_admin)
@@ -41,46 +40,33 @@ class PlanEditApiTests(APITestCase):
         cls.auth_headers_reader = {
             "HTTP_AUTHORIZATION": f"{settings.SIMPLE_JWT['AUTH_HEADER_TYPES']} {access_reader}"
         }
-    def setUp(self) -> None:
-        new_plan = {
-            "name": "Plano Avançado",
-            "description": "Plano de testes para leitores",
-        }
-
-        self.plan = plan_create(
-            name=new_plan["name"],
-            description=new_plan["description"],
-            user=self.auth_user_admin,
-        )
 
 
     @tag("unit")
-    def test_edit_plan_admin(self):
-        update_plan_data = {
-            "name": "Plano Atualizado",
+    def test_create_vertical_admin(self):
+        new_vertical = {
+            "name": "Vertical de Testes"
         }
 
-        pk = self.plan.pk
-        response = self.client.patch(
-            path=self.plan_edit_url(pk),
-            data=update_plan_data,
+        response = self.client.post(
+            path=self.vertical_create_url,
+            data=new_vertical,
             format="json",
             **self.auth_headers_user_admin,
         )
 
-        self.assertEqual(200, response.status_code)
-        self.assertEqual(response.data["name"], update_plan_data["name"])
+        self.assertEqual(201, response.status_code)
+        self.assertEqual(response.data["name"], new_vertical["name"])
 
     @tag("unit")
-    def test_edit_plan_editor_forbidden(self):
-        update_plan_data = {
-            "name": "Plano Editor",
+    def test_create_vertical_editor(self):
+        new_vertical = {
+            "name": "Vertical para Editores"
         }
 
-        pk = 1
-        response = self.client.patch(
-            path=self.plan_edit_url(pk),
-            data=update_plan_data,
+        response = self.client.post(
+            path=self.vertical_create_url,
+            data=new_vertical,
             format="json",
             **self.auth_headers_editor,
         )
@@ -88,15 +74,14 @@ class PlanEditApiTests(APITestCase):
         self.assertEqual(403, response.status_code)
 
     @tag("unit")
-    def test_edit_plan_reader_forbidden(self):
-        update_plan_data = {
-            "name": "Plano Reader",
+    def test_create_vertical_reader(self):
+        new_vertical = {
+            "name": "Vertical para Leitores"
         }
 
-        pk = 1
-        response = self.client.patch(
-            path=self.plan_edit_url(pk),
-            data=update_plan_data,
+        response = self.client.post(
+            path=self.vertical_create_url,
+            data=new_vertical,
             format="json",
             **self.auth_headers_reader,
         )
