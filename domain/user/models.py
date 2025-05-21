@@ -81,6 +81,7 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     objects = UserManager()
     USERNAME_FIELD = "email"
-
+    def is_staff(self):
+        return self.is_superuser
     def __str__(self):
         return f"{self.name} - {self.email}"

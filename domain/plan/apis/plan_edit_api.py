@@ -11,6 +11,7 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from drf_spectacular.utils import extend_schema
 
 from domain.plan.actions import plan_create, plan_update
+from domain.plan.selectors import plan_get
 from domain.plan.serializers import CreatePlanSerializer, PlanSerializer, PlanUpdateSerializer
 from domain.user.selectors import user_get
 
@@ -27,12 +28,13 @@ def plan_edit_api(request, pk):
     if not request.user.has_perm("plan.change_plan"):
         raise PermissionDenied
     user = user_get(user_id=pk)
-
+    plan = plan_get(plan_id=pk)
+    
     serializer = PlanUpdateSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
 
-    plan = plan_update()
+    new_plan = plan_update(plan=plan   ,modified_by=user, data=serializer.validated_data)
 
-    serializer = PlanSerializer(plan)
+    serializer = PlanSerializer(new_plan)
 
     return Response(status=status.HTTP_200_OK, data=serializer.data)

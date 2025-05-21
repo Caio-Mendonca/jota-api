@@ -1,17 +1,8 @@
-from django.urls import path, include
-
+from django.urls import path
 from .apis import group_list_api
 
+app_name = "groups"
+
 urlpatterns = [
-    path(
-        "list/",
-        include(
-            (
-                [
-                    path("", group_list_api, name="list"),
-                ],
-                "groups",
-            )
-        ),
-    ),
+    path("list/", group_list_api, name="list"),
 ]
