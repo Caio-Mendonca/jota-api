@@ -22,7 +22,7 @@ class UserUpdateApiTests(APITestCase):
 
     @tag("unit")
     def test_user_update(self):
-        user_id = 2
+        user_id = 1
         update_data = {"name": "Usuário Editado", "is_active": False}
 
         response = self.client.patch(

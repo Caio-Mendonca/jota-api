@@ -24,7 +24,7 @@ class UserJwtLoginTests(TestCase):
 
         cls.user_admin = {
             "name": "Test 1",
-            "email": "adm@example.com",
+            "email": "admtestes@example.com",
             "password": "senhaADM",
             "is_active": True,
             "group": Group.objects.get(id=1),
@@ -34,7 +34,7 @@ class UserJwtLoginTests(TestCase):
 
     @tag("unit")
     def test_user_login_invalid_credentials(self):
-        data = {"email": "adm@example.com", "password": "test122345"}
+        data = {"email": "dasdasdasdasdasdasdasdas@example.com", "password": "test122345"}
 
         response = self.client.post(path=self.jwt_login_url, data=data)
 
@@ -42,7 +42,7 @@ class UserJwtLoginTests(TestCase):
 
     @tag("unit")
     def test_user_login_valid_credentials(self):
-        data = {"email": "adm@example.com", "password": "senhaADM"}
+        data = {"email": "admtestes@example.com", "password": "senhaADM"}
 
         response = self.client.post(path=self.jwt_login_url, data=data)
 

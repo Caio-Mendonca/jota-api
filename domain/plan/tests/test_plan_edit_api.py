@@ -28,14 +28,14 @@ class PlanEditApiTests(APITestCase):
             "HTTP_AUTHORIZATION": f"{settings.SIMPLE_JWT['AUTH_HEADER_TYPES']} {access_auth_user_admin}"
         }
 
-        cls.auth_user_editor = user_get(user_id=2)
+        cls.auth_user_editor = user_get(user_id=4)
         tokens = get_tokens_for_user(cls.auth_user_editor)
         access_editor = tokens["access"]
         cls.auth_headers_editor = {
             "HTTP_AUTHORIZATION": f"{settings.SIMPLE_JWT['AUTH_HEADER_TYPES']} {access_editor}"
         }
 
-        cls.auth_user_reader = user_get(user_id=3)
+        cls.auth_user_reader = user_get(user_id=6)
         tokens = get_tokens_for_user(cls.auth_user_reader)
         access_reader = tokens["access"]
         cls.auth_headers_reader = {

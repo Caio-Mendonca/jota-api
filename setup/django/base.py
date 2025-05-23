@@ -36,6 +36,7 @@ LOCAL_APPS = [
     "application.permissions.app.PermissionConfig",
     "domain.user.app.UserConfig",
     "domain.vertical.app.VerticalConfig",
+    "domain.news.app.NewsConfig",
     "domain.file.app.FileConfig",
     "domain.plan.app.PlanConfig",
 ]

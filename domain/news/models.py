@@ -5,9 +5,9 @@ from domain.file.models import File
 from domain.vertical.models import Vertical 
 
 class NewsStatus(models.TextChoices):
-    DRAFT = 'draft', 'Draft'
-    PUBLISHED = 'published', 'Published'
-    ARCHIVED = 'archived', 'Archived'
+    DRAFT = 'draft', 'draft'
+    PUBLISHED = 'published', 'published'
+    ARCHIVED = 'archived', 'archived'
 
 class News(BaseModel):
 

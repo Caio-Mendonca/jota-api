@@ -1,96 +1,5 @@
 [
 {
-  "model": "admin.logentry",
-  "pk": 1,
-  "fields": {
-    "action_time": "2025-05-19T20:49:08.898Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "2",
-    "object_repr": "teste editor - teste@editor.com.br",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 2,
-  "fields": {
-    "action_time": "2025-05-19T20:49:32.171Z",
-    "user": 1,
-    "content_type": 8,
-    "object_id": "3",
-    "object_repr": "teste leitor - teste@leitor.com.br",
-    "action_flag": 1,
-    "change_message": "[{\"added\": {}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 3,
-  "fields": {
-    "action_time": "2025-05-19T20:53:32.289Z",
-    "user": 1,
-    "content_type": 3,
-    "object_id": "1",
-    "object_repr": "Administrador",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 4,
-  "fields": {
-    "action_time": "2025-05-19T20:54:05.820Z",
-    "user": 1,
-    "content_type": 3,
-    "object_id": "3",
-    "object_repr": "Editor",
-    "action_flag": 2,
-    "change_message": "[]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 5,
-  "fields": {
-    "action_time": "2025-05-19T20:54:20.274Z",
-    "user": 1,
-    "content_type": 3,
-    "object_id": "1",
-    "object_repr": "Administrador",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 6,
-  "fields": {
-    "action_time": "2025-05-19T20:56:47.805Z",
-    "user": 1,
-    "content_type": 3,
-    "object_id": "3",
-    "object_repr": "Editor",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 7,
-  "fields": {
-    "action_time": "2025-05-19T20:57:05.518Z",
-    "user": 1,
-    "content_type": 3,
-    "object_id": "2",
-    "object_repr": "Leitor",
-    "action_flag": 2,
-    "change_message": "[{\"changed\": {\"fields\": [\"Permissions\"]}}]"
-  }
-},
-{
   "model": "auth.permission",
   "pk": 1,
   "fields": {
@@ -406,6 +315,186 @@
   }
 },
 {
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can add plan",
+    "content_type": 9,
+    "codename": "add_plan"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can change plan",
+    "content_type": 9,
+    "codename": "change_plan"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can delete plan",
+    "content_type": 9,
+    "codename": "delete_plan"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can view plan",
+    "content_type": 9,
+    "codename": "view_plan"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can add plan vertical",
+    "content_type": 10,
+    "codename": "add_planvertical"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can change plan vertical",
+    "content_type": 10,
+    "codename": "change_planvertical"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can delete plan vertical",
+    "content_type": 10,
+    "codename": "delete_planvertical"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can view plan vertical",
+    "content_type": 10,
+    "codename": "view_planvertical"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can add vertical",
+    "content_type": 11,
+    "codename": "add_vertical"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can change vertical",
+    "content_type": 11,
+    "codename": "change_vertical"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can delete vertical",
+    "content_type": 11,
+    "codename": "delete_vertical"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can view vertical",
+    "content_type": 11,
+    "codename": "view_vertical"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can add file",
+    "content_type": 12,
+    "codename": "add_file"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can change file",
+    "content_type": 12,
+    "codename": "change_file"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can delete file",
+    "content_type": 12,
+    "codename": "delete_file"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can view file",
+    "content_type": 12,
+    "codename": "view_file"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can add news",
+    "content_type": 13,
+    "codename": "add_news"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can change news",
+    "content_type": 13,
+    "codename": "change_news"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can delete news",
+    "content_type": 13,
+    "codename": "delete_news"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can view news",
+    "content_type": 13,
+    "codename": "view_news"
+  }
+},
+{
   "model": "auth.group",
   "pk": 1,
   "fields": {
@@ -427,6 +516,18 @@
       14,
       15,
       16,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      36,
+      37,
+      38,
+      39,
       17,
       18,
       19,
@@ -445,7 +546,15 @@
       35,
       30,
       31,
-      32
+      32,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
     ]
   }
 },
@@ -483,6 +592,18 @@
   "fields": {
     "name": "Editor",
     "permissions": [
+      13,
+      14,
+      15,
+      16,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
       17,
       18,
       19,
@@ -500,72 +621,16 @@
       35,
       30,
       31,
-      32
+      32,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
     ]
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 1,
-  "fields": {
-    "app_label": "admin",
-    "model": "logentry"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 2,
-  "fields": {
-    "app_label": "auth",
-    "model": "permission"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 3,
-  "fields": {
-    "app_label": "auth",
-    "model": "group"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 4,
-  "fields": {
-    "app_label": "contenttypes",
-    "model": "contenttype"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 5,
-  "fields": {
-    "app_label": "sessions",
-    "model": "session"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 6,
-  "fields": {
-    "app_label": "token_blacklist",
-    "model": "blacklistedtoken"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 7,
-  "fields": {
-    "app_label": "token_blacklist",
-    "model": "outstandingtoken"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 8,
-  "fields": {
-    "app_label": "user",
-    "model": "user"
   }
 },
 {
@@ -629,16 +694,72 @@
   }
 },
 {
+  "model": "token_blacklist.outstandingtoken",
+  "pk": 5,
+  "fields": {
+    "user": 1,
+    "jti": "0f511386782045608453302421be34a1",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NTg4NjYxMywiaWF0IjoxNzQ3NzQyNjEzLCJqdGkiOiIwZjUxMTM4Njc4MjA0NTYwODQ1MzMwMjQyMWJlMzRhMSIsInVzZXJfaWQiOjF9.TYRdwdB0-ROymel9hhkvj4y7ky_tTxjCi7eQuMDacvs",
+    "created_at": "2025-05-20T12:03:33.742Z",
+    "expires_at": "2025-12-16T12:03:33Z"
+  }
+},
+{
+  "model": "token_blacklist.outstandingtoken",
+  "pk": 6,
+  "fields": {
+    "user": 1,
+    "jti": "e40f47cb22e84c729bfc86e09a607792",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NTg4NzYxNywiaWF0IjoxNzQ3NzQzNjE3LCJqdGkiOiJlNDBmNDdjYjIyZTg0YzcyOWJmYzg2ZTA5YTYwNzc5MiIsInVzZXJfaWQiOjF9.Yb6EKz_T0dwzqPBrwt7G6PMKcRhALkiRkbSk7bpdxps",
+    "created_at": "2025-05-20T12:20:17.830Z",
+    "expires_at": "2025-12-16T12:20:17Z"
+  }
+},
+{
+  "model": "token_blacklist.outstandingtoken",
+  "pk": 7,
+  "fields": {
+    "user": 5,
+    "jti": "259381efdebb434da112eb50b584c9a2",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjAwMTE4NiwiaWF0IjoxNzQ3ODU3MTg2LCJqdGkiOiIyNTkzODFlZmRlYmI0MzRkYTExMmViNTBiNTg0YzlhMiIsInVzZXJfaWQiOjV9.2ReVtjgo78ejyDsHud6h9GkvdkHLMX_m_-iM3ycgOBU",
+    "created_at": "2025-05-21T19:53:06.547Z",
+    "expires_at": "2025-12-17T19:53:06Z"
+  }
+},
+{
+  "model": "token_blacklist.outstandingtoken",
+  "pk": 8,
+  "fields": {
+    "user": 5,
+    "jti": "a5e149649e304380b5db8ea9a6a77774",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjE0Nzg3MSwiaWF0IjoxNzQ4MDAzODcxLCJqdGkiOiJhNWUxNDk2NDllMzA0MzgwYjVkYjhlYTlhNmE3Nzc3NCIsInVzZXJfaWQiOjV9.MuB5CPZUWRmKwtfmC7EUKC1N-ETlxzBz1utWEbDYbhE",
+    "created_at": "2025-05-23T12:37:51.864Z",
+    "expires_at": "2025-12-19T12:37:51Z"
+  }
+},
+{
+  "model": "token_blacklist.outstandingtoken",
+  "pk": 9,
+  "fields": {
+    "user": 5,
+    "jti": "683df7ef621e464eaa1bf6b18645cd97",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2NjE2NjIxOSwiaWF0IjoxNzQ4MDIyMjE5LCJqdGkiOiI2ODNkZjdlZjYyMWU0NjRlYWExYmY2YjE4NjQ1Y2Q5NyIsInVzZXJfaWQiOjV9.BQm4g_r4vJv0jpQgLygZwTI3wJKtxw00e-mVnsX-7uk",
+    "created_at": "2025-05-23T17:43:39.654Z",
+    "expires_at": "2025-12-19T17:43:39Z"
+  }
+},
+{
   "model": "user.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$1000000$2iHPHRMW2FQJPR0uBRAjlq$cAOsu91ejKxz2v3y8XOiXRBI9SS/4mIgwjk2Qke4cQI=",
-    "last_login": "2025-05-19T19:09:31.560Z",
+    "last_login": "2025-05-20T12:20:17.850Z",
     "is_superuser": true,
     "created_at": "2025-05-19T18:12:07.255Z",
     "updated_at": "2025-05-19T18:12:07.421Z",
     "name": "Caio Mendonca",
     "email": "caioeduardojm4@gmail.com",
+    "plan": null,
     "is_active": true,
     "groups": [
       1
@@ -648,15 +769,16 @@
 },
 {
   "model": "user.user",
-  "pk": 2,
+  "pk": 4,
   "fields": {
-    "password": "teste@editor",
+    "password": "pbkdf2_sha256$1000000$NRO1HQLrzEDJtKVoy4Gh6T$fRj+wQ4nPwZdiP6tormgPzDqoCd9KngrM6dyhHYNV7c=",
     "last_login": null,
     "is_superuser": false,
-    "created_at": "2025-05-19T20:47:21Z",
-    "updated_at": "2025-05-19T20:49:08.886Z",
-    "name": "teste editor",
-    "email": "teste@editor.com.br",
+    "created_at": "2025-05-20T12:47:51.709Z",
+    "updated_at": "2025-05-20T12:47:51.840Z",
+    "name": "Editor example",
+    "email": "editor@example.com",
+    "plan": null,
     "is_active": true,
     "groups": [
       3
@@ -666,20 +788,197 @@
 },
 {
   "model": "user.user",
-  "pk": 3,
+  "pk": 5,
   "fields": {
-    "password": "teste@leitor",
+    "password": "pbkdf2_sha256$1000000$GdgMyCmqT8oITEI8L86ftR$l4dtvbPbpMvrIJnUOCsXxR/zWWRoiN7oBhx01Ys8/Ro=",
+    "last_login": "2025-05-23T17:43:39.667Z",
+    "is_superuser": false,
+    "created_at": "2025-05-20T12:49:05.343Z",
+    "updated_at": "2025-05-20T12:49:05.494Z",
+    "name": "ADM example",
+    "email": "adm@example.com",
+    "plan": null,
+    "is_active": true,
+    "groups": [
+      1
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$9SOOa1C3Y3arIbSVSRsfls$zivooIoghcnQTzWgSSje/D3I5gmRfzCIgPVQpTDELH4=",
     "last_login": null,
     "is_superuser": false,
-    "created_at": "2025-05-19T20:49:13Z",
-    "updated_at": "2025-05-19T20:49:32.161Z",
-    "name": "teste leitor",
-    "email": "teste@leitor.com.br",
+    "created_at": "2025-05-20T12:49:45.975Z",
+    "updated_at": "2025-05-20T12:49:46.127Z",
+    "name": "Leitor example",
+    "email": "leitor@example.com",
+    "plan": null,
     "is_active": true,
     "groups": [
       2
     ],
     "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$SiT3vKXqQKBeMbb8W0KC51$OirFh12DYSA7DeACe1pPwWaKfpufIFi0KbhZDNLbMdI=",
+    "last_login": null,
+    "is_superuser": false,
+    "created_at": "2025-05-20T12:50:37.418Z",
+    "updated_at": "2025-05-20T12:50:37.567Z",
+    "name": "Leitor example 3",
+    "email": "leitor@example2.com",
+    "plan": null,
+    "is_active": false,
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "vertical.vertical",
+  "pk": 1,
+  "fields": {
+    "created_at": "2025-05-23T18:08:00.610Z",
+    "updated_at": "2025-05-23T18:08:00.610Z",
+    "name": "Tributos",
+    "created_by": 5,
+    "updated_by": null
+  }
+},
+{
+  "model": "news.news",
+  "pk": 1,
+  "fields": {
+    "created_at": "2025-05-23T18:08:21.536Z",
+    "updated_at": "2025-05-23T18:08:21.536Z",
+    "title": "Teste de titulo",
+    "subtitle": "teste de subtitulo",
+    "content": "asdasda asdasd a asdasd a",
+    "image": 1,
+    "author": 1,
+    "publication_date": "2025-05-23T15:17:53.772Z",
+    "status": "draft",
+    "access_pro": false,
+    "vertical": 1,
+    "created_by": 5,
+    "updated_by": null
+  }
+},
+{
+  "model": "news.news",
+  "pk": 2,
+  "fields": {
+    "created_at": "2025-05-23T18:09:18.881Z",
+    "updated_at": "2025-05-23T18:09:18.881Z",
+    "title": "Teste de titulo",
+    "subtitle": "teste de subtitulo",
+    "content": "asdasda asdasd a asdasd a",
+    "image": 1,
+    "author": 1,
+    "publication_date": "2025-05-23T15:17:53.772Z",
+    "status": "draft",
+    "access_pro": false,
+    "vertical": 1,
+    "created_by": 5,
+    "updated_by": null
+  }
+},
+{
+  "model": "news.news",
+  "pk": 3,
+  "fields": {
+    "created_at": "2025-05-23T18:09:30.012Z",
+    "updated_at": "2025-05-23T18:09:30.012Z",
+    "title": "Teste de titulo",
+    "subtitle": "teste de subtitulo",
+    "content": "asdasda asdasd a asdasd a",
+    "image": 1,
+    "author": 1,
+    "publication_date": "2025-05-23T15:17:53.772Z",
+    "status": "draft",
+    "access_pro": false,
+    "vertical": 1,
+    "created_by": 5,
+    "updated_by": null
+  }
+},
+{
+  "model": "news.news",
+  "pk": 4,
+  "fields": {
+    "created_at": "2025-05-23T18:10:03.000Z",
+    "updated_at": "2025-05-23T18:10:03.000Z",
+    "title": "Teste de titulo",
+    "subtitle": "teste de subtitulo",
+    "content": "asdasda asdasd a asdasd a",
+    "image": 1,
+    "author": 1,
+    "publication_date": "2025-05-23T15:17:53.772Z",
+    "status": "draft",
+    "access_pro": false,
+    "vertical": 1,
+    "created_by": 5,
+    "updated_by": null
+  }
+},
+{
+  "model": "news.news",
+  "pk": 5,
+  "fields": {
+    "created_at": "2025-05-23T18:10:18.920Z",
+    "updated_at": "2025-05-23T18:10:18.920Z",
+    "title": "Teste de titulo",
+    "subtitle": "teste de subtitulo",
+    "content": "asdasda asdasd a asdasd a",
+    "image": 1,
+    "author": 1,
+    "publication_date": "2025-05-23T15:17:53.772Z",
+    "status": "draft",
+    "access_pro": false,
+    "vertical": 1,
+    "created_by": 5,
+    "updated_by": null
+  }
+},
+{
+  "model": "file.file",
+  "pk": 1,
+  "fields": {
+    "created_at": "2025-05-23T12:38:34.331Z",
+    "updated_at": "2025-05-23T12:38:34.331Z",
+    "path": "uploads/Captura_de_Tela_2025-05-16_as_1.50.01PM.png",
+    "type_file": "image"
+  }
+},
+{
+  "model": "file.file",
+  "pk": 2,
+  "fields": {
+    "created_at": "2025-05-23T12:43:40.419Z",
+    "updated_at": "2025-05-23T12:43:40.419Z",
+    "path": "uploads/Captura_de_Tela_2025-05-16_as_1.49.07PM.png",
+    "type_file": "image"
+  }
+},
+{
+  "model": "plan.plan",
+  "pk": 1,
+  "fields": {
+    "created_at": "2025-05-23T20:39:27.328Z",
+    "updated_at": "2025-05-23T20:49:46.153Z",
+    "name": "teeasdasd",
+    "description": "teste",
+    "created_by": 5,
+    "updated_by": 1
   }
 }
 ]

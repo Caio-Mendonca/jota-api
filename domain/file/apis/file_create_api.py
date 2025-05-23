@@ -9,6 +9,7 @@ from drf_spectacular.utils import extend_schema
 
 from domain.file.actions import file_create
 from domain.file.models import File
+from domain.file.serializers import FileOutputSerializer
 
 
 @extend_schema(
@@ -28,7 +29,7 @@ from domain.file.models import File
             'required': ['path', 'type_file']
         }
     },
-    responses={201: None},
+    responses={201: FileOutputSerializer, 400: {"detail": "Campo 'path' (arquivo) é obrigatório."}},
 )
 class FileCreateApi(APIView):
     permission_classes = [IsAuthenticated]
@@ -49,5 +50,5 @@ class FileCreateApi(APIView):
             return Response({'detail': 'Campo "type_file" é obrigatório.'}, status=status.HTTP_400_BAD_REQUEST)
 
         file = file_create(path=uploaded_file, type_file=type_file)
-
-        return Response(status=status.HTTP_201_CREATED, data={"id": file.id})
+        serializer = FileOutputSerializer(file)
+        return Response(status=status.HTTP_201_CREATED, data=serializer.data)

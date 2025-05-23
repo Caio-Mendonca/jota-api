@@ -18,7 +18,7 @@ from drf_spectacular.utils import extend_schema
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
 def vertical_create_api(request):
-    if not request.user.has_perm("user.add_vertical"):
+    if not request.user.has_perm("vertical.add_vertical"):
         raise PermissionDenied
     serializer = CreateVerticalSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
