@@ -30,10 +30,17 @@ migrate: clean
 
 # Tests
 coverage: clean
-	pytest -v --disable-warnings --cov
+	pytest --cache-clear -v --disable-warnings --cov
 	
 pytest: clean
 	pytest -v --disable-warnings
 
 test: clean
 	python manage.py test --settings=setup.django.test
+
+
+dump-db:
+	python manage.py dumpdata --indent 2 --format json \
+	--exclude contenttypes \
+	--exclude admin.LogEntry \
+	> fixtures/db_test.json

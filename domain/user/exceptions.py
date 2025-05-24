@@ -16,10 +16,7 @@ class PasswordIncorrect(APIException):
     default_code = "password_incorrect"
 
 
-class PasswordMismatch(APIException):
-    status_code = 400
-    default_detail = _("Senhas devem ser iguais.")
-    default_code = "password_mismatch"
+
 
 
 class InvalidUidUser(APIException):

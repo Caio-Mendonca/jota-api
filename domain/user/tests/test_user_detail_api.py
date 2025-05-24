@@ -22,7 +22,7 @@ class UserDetailApiTests(APITestCase):
 
     @tag("unit")
     def test_user_detail(self):
-        user_id = 2
+        user_id = 1
         response = self.client.get(
             path=self.user_detail_url(user_id), **self.auth_headers_admin
         )

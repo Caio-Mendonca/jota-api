@@ -26,13 +26,11 @@ class UserManager(BaseUserManager):
         group: Group,
         is_active: bool = False,
         password: Optional[str] = None,
-        is_admin: bool = False,
     ):
         user = self.model(
             email=self.normalize_email(email.lower()),
             name=name,
             is_active=is_active,
-            is_admin=is_admin,
         )
 
         if password is not None:
@@ -57,7 +55,6 @@ class UserManager(BaseUserManager):
             name=name,
             is_active=True,
             password=password,
-            is_admin=True,
             group=default_group,
         )
 
@@ -81,14 +78,17 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
         max_length=255,
         unique=True,
     )
+    plan = models.ForeignKey(
+        to='plan.Plan',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="users",
+    )
     is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
     objects = UserManager()
-
     USERNAME_FIELD = "email"
-
     def is_staff(self):
-        return self.is_admin
-
+        return self.is_superuser
     def __str__(self):
         return f"{self.name} - {self.email}"

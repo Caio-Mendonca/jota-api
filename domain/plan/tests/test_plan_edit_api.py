@@ -2,6 +2,7 @@ import os.path
 
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__name__))
 
+from domain.plan.actions import plan_create
 from domain.user.selectors import user_get
 from support.utils import get_tokens_for_user
 from django.test import tag
@@ -11,14 +12,14 @@ from rest_framework.test import APIClient
 from django.conf import settings
 
 
-class UserCreateApiTests(APITestCase):
+class PlanEditApiTests(APITestCase):
     fixtures = [PROJECT_ROOT + "/fixtures/db_test.json"]
 
     @classmethod
     def setUpTestData(cls):
         cls.client = APIClient()
 
-        cls.user_create_url = reverse("api:user:create")
+        cls.plan_edit_url = lambda pk: reverse("api:plan:update", kwargs={"pk": pk})
 
         cls.auth_user_admin = user_get(user_id=1)
         tokens = get_tokens_for_user(cls.auth_user_admin)
@@ -27,73 +28,76 @@ class UserCreateApiTests(APITestCase):
             "HTTP_AUTHORIZATION": f"{settings.SIMPLE_JWT['AUTH_HEADER_TYPES']} {access_auth_user_admin}"
         }
 
-        cls.auth_user_editor = user_get(user_id=2)
+        cls.auth_user_editor = user_get(user_id=4)
         tokens = get_tokens_for_user(cls.auth_user_editor)
         access_editor = tokens["access"]
         cls.auth_headers_editor = {
             "HTTP_AUTHORIZATION": f"{settings.SIMPLE_JWT['AUTH_HEADER_TYPES']} {access_editor}"
         }
 
-        cls.auth_user_reader = user_get(user_id=3)
+        cls.auth_user_reader = user_get(user_id=6)
         tokens = get_tokens_for_user(cls.auth_user_reader)
         access_reader = tokens["access"]
         cls.auth_headers_reader = {
             "HTTP_AUTHORIZATION": f"{settings.SIMPLE_JWT['AUTH_HEADER_TYPES']} {access_reader}"
         }
-
-    @tag("unit")
-    def test_create_user_admin(self):
-        new_user = {
-            "is_active": True,
-            "email": "testeautomatizado@testeautomatizado.com.br",
-            "name": " Teste",
-            "password": "testeSenha",
-            "group": 1,
+    def setUp(self) -> None:
+        new_plan = {
+            "name": "Plano Avançado",
+            "description": "Plano de testes para leitores",
         }
 
-        response = self.client.post(
-            path=self.user_create_url,
-            data=new_user,
+        self.plan = plan_create(
+            name=new_plan["name"],
+            description=new_plan["description"],
+            user=self.auth_user_admin,
+        )
+
+
+    @tag("unit")
+    def test_edit_plan_admin(self):
+        update_plan_data = {
+            "name": "Plano Atualizado",
+        }
+
+        pk = self.plan.pk
+        response = self.client.patch(
+            path=self.plan_edit_url(pk),
+            data=update_plan_data,
             format="json",
             **self.auth_headers_user_admin,
         )
-
-        self.assertEqual(201, response.status_code)
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(response.data["name"], update_plan_data["name"])
 
     @tag("unit")
-    def test_create_user_with_editor(self):
-        new_user = {
-            "is_active": True,
-            "email": "testeautomatizado@testeautomatizado.com.br",
-            "name": " Teste",
-            "password": "testeSenha",
-            "group": 2,
+    def test_edit_plan_editor_forbidden(self):
+        update_plan_data = {
+            "name": "Plano Editor",
         }
 
-        response = self.client.post(
-            path=self.user_create_url,
-            data=new_user,
+        pk = 1
+        response = self.client.patch(
+            path=self.plan_edit_url(pk),
+            data=update_plan_data,
             format="json",
             **self.auth_headers_editor,
         )
 
-        self.assertEqual(201, response.status_code)
+        self.assertEqual(403, response.status_code)
 
     @tag("unit")
-    def test_create_user_with_reader(self):
-        new_user = {
-            "is_active": True,
-            "email": "testeautomatizado@testeautomatizado.com.br",
-            "name": " Teste",
-            "password": "testeSenha",
-            "group": 1,
+    def test_edit_plan_reader_forbidden(self):
+        update_plan_data = {
+            "name": "Plano Reader",
         }
 
-        response = self.client.post(
-            path=self.user_create_url,
-            data=new_user,
+        pk = 1
+        response = self.client.patch(
+            path=self.plan_edit_url(pk),
+            data=update_plan_data,
             format="json",
             **self.auth_headers_reader,
         )
 
-        self.assertEqual(201, response.status_code)
+        self.assertEqual(403, response.status_code)

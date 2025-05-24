@@ -10,7 +10,6 @@ class GroupField(serializers.RelatedField):
 class UserOutputSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     is_active = serializers.BooleanField(read_only=True)
-    is_admin = serializers.BooleanField(read_only=True)
     email = serializers.CharField(read_only=True)
     name = serializers.CharField(read_only=True)
     group = GroupField(read_only=True, source="groups")
@@ -33,4 +32,13 @@ class InputSerializer(serializers.Serializer):
     is_active = serializers.BooleanField(required=False)
     group = serializers.PrimaryKeyRelatedField(
         required=True, queryset=Group.objects.all()
+    )
+
+
+class InputUpdateSerializer(serializers.Serializer):
+    name = serializers.CharField(required=False)
+    email = serializers.CharField(required=False)
+    is_active = serializers.BooleanField(required=False)
+    group = serializers.PrimaryKeyRelatedField(
+        required=False, queryset=Group.objects.all()
     )
