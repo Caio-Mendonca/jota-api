@@ -14,6 +14,7 @@ class News(BaseModel):
     class Meta:
         db_table = "news"
         ordering = ["-created_at"]
+        app_label = "news" 
 
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255, null=True, blank=True)

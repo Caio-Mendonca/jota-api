@@ -25,7 +25,7 @@ from django.core.exceptions import PermissionDenied
 @authentication_classes([JWTAuthentication])
 @permission_classes([IsAuthenticated])
 def news_create_api(request):
-    if not request.user.has_perm("news.add_news"):
+    if not request.user.has_perm("plan.add_news"):
         raise PermissionDenied
 
     serializer = CreateNewsSerializer(data=request.data)

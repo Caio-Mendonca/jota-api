@@ -7,5 +7,5 @@ app_name = "plan"
 
 urlpatterns = [
     path("create/", plan_create_api, name="create"),
-    path("edit/<int:pk>/", plan_edit_api, name="edit"),
+    path("<int:pk>/update", plan_edit_api, name="update"),
 ]

@@ -25,7 +25,7 @@ from domain.news.serializers import OutputNewsSerializer
 def news_detail_api(request, pk):
     if not request.user.has_perm("news.view_news"):
         raise PermissionDenied
-    news = news_get(new_id=pk)
+    news = news_get(news_id=pk)
 
     serializer = OutputNewsSerializer(news)
 

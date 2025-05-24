@@ -27,13 +27,12 @@ from domain.user.selectors import user_get
 def plan_edit_api(request, pk):
     if not request.user.has_perm("plan.change_plan"):
         raise PermissionDenied
-    user = user_get(user_id=pk)
     plan = plan_get(plan_id=pk)
     
     serializer = PlanUpdateSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
 
-    new_plan = plan_update(plan=plan   ,modified_by=user, data=serializer.validated_data)
+    new_plan = plan_update(plan=plan   ,modified_by=request.user, data=serializer.validated_data)
 
     serializer = PlanSerializer(new_plan)
 

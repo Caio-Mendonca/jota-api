@@ -9,7 +9,7 @@ app_name = "news"
 
 urlpatterns = [
     path("create/", news_create_api, name="create"),
-    path("<int:pk>/update/", news_update_api, name="delete"),
+    path("<int:pk>/update/", news_update_api, name="update"),
     path("<int:pk>/delete/", news_delete_api, name="delete"),
     path("<int:pk>/detail/", news_detail_api, name="detail"),
     path("", news_list_api, name="list"),

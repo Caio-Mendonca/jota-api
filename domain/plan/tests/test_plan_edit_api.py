@@ -19,7 +19,7 @@ class PlanEditApiTests(APITestCase):
     def setUpTestData(cls):
         cls.client = APIClient()
 
-        cls.plan_edit_url = lambda pk: reverse("api:plan:edit", kwargs={"pk": pk})
+        cls.plan_edit_url = lambda pk: reverse("api:plan:update", kwargs={"pk": pk})
 
         cls.auth_user_admin = user_get(user_id=1)
         tokens = get_tokens_for_user(cls.auth_user_admin)
@@ -67,7 +67,6 @@ class PlanEditApiTests(APITestCase):
             format="json",
             **self.auth_headers_user_admin,
         )
-
         self.assertEqual(200, response.status_code)
         self.assertEqual(response.data["name"], update_plan_data["name"])
 
