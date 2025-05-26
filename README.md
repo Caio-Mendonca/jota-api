@@ -70,24 +70,6 @@ Além disso, o style guide conversa muito bem com os princípios do Domain-Drive
 
 Desenvolver uma API RESTful para gestão de notícias, contemplando autenticação e diferentes perfis de usuário.
 
-## Checklist de Entregáveis
-
-- [X] Autenticação JWT implementada
-- [X] Perfis de usuário (Admin, Editor, Leitor) configurados como grupos
-- [ ] CRUD de notícias (título, subtítulo, conteúdo, imagem, autor, data de publicação, status)
-- [ ] Upload de imagens funcionando
-- [ ] Agendamento de publicações implementado
-- [ ] Categorias de notícias por verticais configuravéis
-- [ ] Controle de acesso baseado em plano e vertical
-- [ ] Modelo de planos e verticais com CRUD
-- [ ] CRUD Usuário
-- [ ] Processamento assíncrono com filas/eventos para notificações
-- [X] Banco de dados PostgreSQL configurado
-- [ ] Testes unitários e de integração criados
-- [ ] Pipeline CI/CD configurado (GitHub Actions)
-- [X] Documentação da API com Swagger/OpenAPI
-- [ ] Docker e docker-compose configurados para deploy
-
 ## Decisões Técnicas
 
 ### Gestão de Perfis
